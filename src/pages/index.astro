@@ -1,0 +1,20 @@
+---
+let posts = await Astro.glob('../content/*.md');
+
+posts = posts.map((post) => {
+  return {
+    frontmatter: post.frontmatter,
+    content: post.compiledContent()
+  }
+})
+---
+
+{ posts.map((post) => {
+  return (
+    <div style="margin:.5rem;padding:.5rem;border:1px solid black;">
+      <Fragment set:html={post.content} />
+      <h3>Frontmatter:</h3>
+      <code set:text={JSON.stringify(post.frontmatter)}></code>
+    </div>
+  )
+})}
