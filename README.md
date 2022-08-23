@@ -24,6 +24,8 @@ Frontmatter object that will be applied to all directories in `dirs`
 
 **`spread`**:
 
+**Type**: `boolean`
+
 Instead of replacing the frontmatter entirely it spreads the new frontmatter over any values that were set using less specific directories earlier in the options array
 
 ### Example
