@@ -10,11 +10,11 @@ export default defineConfig({
         [
           {
             dirs: ['./src/content'],
-            frontmatter: { title: 'Default Title', default: "value" },
+            frontmatter: { title: 'Less Specific Default Title', layout: "../layouts/default.astro" },
           },
           {
             dirs: ['./src/content/2.md'],
-            frontmatter: { title: 'More Specific Default Title' }
+            frontmatter: { title: 'More Specific Default Title', layout: "../layouts/post2.astro"  }
           },
         ],
       ],
