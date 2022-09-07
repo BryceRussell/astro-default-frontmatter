@@ -62,10 +62,10 @@ Replace the frontmatter entirely instead of spreading new values ontop of old va
 ```
 1.md frontmatter -> {
   file: "1"
+  dir: "content"
 }
 2.md frontmatter -> {
-  file: "2",
-  dir: "content"
+  file: "2"
 }
 3.md frontmatter -> {
   file: "none",
