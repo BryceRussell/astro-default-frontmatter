@@ -13,7 +13,7 @@ export function defaultFrontmatterAdvanced(options = []) {
   //     frontmatter: {
   //       title: "Test Title
   //     },
-  //     replace: true //Replaces all previously set values
+  //     replace: true //Replaces the entire frontmatter instead of spreading new values onto old
   //   }
   // ]
   return function (tree, file) {

@@ -22,11 +22,11 @@ A list of directories that frontmatter will be applied to
 
 Frontmatter object that will be applied to all directories in `dirs`
 
-**`spread`**:
+**`replace`**:
 
 **Type**: `boolean`
 
-Instead of replacing the frontmatter entirely it spreads the new frontmatter over any values that were set using less specific directories earlier in the options array
+Replace the frontmatter entirely instead of spreading new values ontop of old values
 
 ### Example
 
@@ -52,7 +52,7 @@ Instead of replacing the frontmatter entirely it spreads the new frontmatter ove
     frontmatter: {
       file: "2"
     },
-    spread: true
+    replace: true
   }
 ]
 ```
