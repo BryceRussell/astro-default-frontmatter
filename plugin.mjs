@@ -1,24 +1,29 @@
-export function dirFrontmatter(options={}) {
+export function defaultFrontmatter(option = {}) {
+  return function (tree, file) {
+    file.data.astro.frontmatter = {...file.data.astro.frontmatter, ...option};
+  };
+}
+
+
+
+export function defaultFrontmatterAdvanced(options = []) {
   // [
   //   {
   //     dirs: ["./src/content"],
   //     frontmatter: {
   //       title: "Test Title
   //     },
-  //     spread: true //Spread values instead of fully replacing them
+  //     replace: true //Replaces all previously set values
   //   }
   // ]
   return function (tree, file) {
-    let filepath = file.history.pop().replace(file.cwd, '.')
-    for (let i in options) {
-      let option = options[i]
-      for (let j in option.dirs) {
-        if (filepath.startsWith(option.dirs[j])) {
-          option.spread?
-            file.data.astro.frontmatter = {...file.data.astro.frontmatter, ...option.frontmatter}:
-            file.data.astro.frontmatter = option.frontmatter
-        }
+    const filepath = file.history.pop().replace(file.cwd, '.');
+    for (const option of options) {
+      for (const dir of option.dirs) {
+        filepath.startsWith(dir) && option.replace?
+          file.data.astro.frontmatter = option.frontmatter:
+          file.data.astro.frontmatter = {...file.data.astro.frontmatter, ...option.frontmatter};
       }
     }
-  }
+  };
 }
