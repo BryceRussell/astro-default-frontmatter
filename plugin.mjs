@@ -17,14 +17,16 @@ export function defaultFrontmatterAdvanced(options = []) {
   //   }
   // ]
   return function (tree, file) {
-    const filepath = file.history.pop().replace(file.cwd, '.');
-    for (const option of options) {
-      for (const dir of option.dirs) {
-        if (filepath.startsWith(dir)) {
-          if (option.replace) file.data.astro.frontmatter = option.frontmatter
-          else file.data.astro.frontmatter = {...file.data.astro.frontmatter, ...option.frontmatter}
-        }
+      const filepath = file.history.pop().replace(file.cwd, '.').replace(/\\/g, '/')
+      for (const option of options) {
+          console.log(filepath)
+          for (const dir of option.dirs) {
+              console.log(dir)
+              if (filepath.startsWith(dir)) {
+                  if (option.replace) file.data.astro.frontmatter = option.frontmatter
+                  else file.data.astro.frontmatter = {...file.data.astro.frontmatter, ...option.frontmatter}
+              }
+          }
       }
-    }
   };
 }
