@@ -20,9 +20,10 @@ export function defaultFrontmatterAdvanced(options = []) {
     const filepath = file.history.pop().replace(file.cwd, '.');
     for (const option of options) {
       for (const dir of option.dirs) {
-        filepath.startsWith(dir) && option.replace?
-          file.data.astro.frontmatter = option.frontmatter:
-          file.data.astro.frontmatter = {...file.data.astro.frontmatter, ...option.frontmatter};
+        if (filepath.startsWith(dir)) {
+          if (option.replace) file.data.astro.frontmatter = option.frontmatter
+          else file.data.astro.frontmatter = {...file.data.astro.frontmatter, ...option.frontmatter}
+        }
       }
     }
   };
