@@ -9,12 +9,16 @@ export default defineConfig({
         defaultFrontmatterAdvanced,
         [
           {
+            dirs: ['./'],
+            frontmatter: { layout: "../layouts/DefaultLayout.astro" },
+          },
+          {
             dirs: ['./src/content'],
-            frontmatter: { title: 'Less Specific Default Title', layout: "../layouts/default.astro" },
+            frontmatter: { layout: "../layouts/DirectoryLayout.astro" },
           },
           {
             dirs: ['./src/content/2.md'],
-            frontmatter: { title: 'More Specific Default Title', layout: "../layouts/post2.astro"  }
+            frontmatter: { layout: "../layouts/FileLayout.astro"  }
           },
         ],
       ],
