@@ -1,10 +1,14 @@
+export function defaultLayout(layout) {
+  return function (tree, file) {
+    file.data.astro.frontmatter.layout = layout;
+  }
+}
+
 export function defaultFrontmatter(option = {}) {
   return function (tree, file) {
     file.data.astro.frontmatter = {...file.data.astro.frontmatter, ...option};
   };
 }
-
-
 
 export function defaultFrontmatterAdvanced(options = []) {
   // [
