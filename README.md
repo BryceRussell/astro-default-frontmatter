@@ -8,7 +8,7 @@ This is a demo mostly for personal use if I need to use it alot I will make a pa
 
 Option objects should be in order from less specific directories --> more specific directories to avoid wierd behavior 
 
-**Ex**: `'./src' -> './src/content' -> './src/content/1.md'`
+**Ex**: `'./' -> './src' -> './src/content' -> './src/content/1.md'`
 
 **`dirs`**: 
 
