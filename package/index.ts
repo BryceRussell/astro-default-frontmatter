@@ -9,31 +9,27 @@ type Vfile = BaseVFile & {
   };
 };
 
-export interface Options {
-  dirs: string[]; // Array of dirs your files are in Ex: './src/pages/blog'
-  frontmatter: Record<string, unknown>; // The default frontmatter for the dirs defined in 'dirs'
-  replace?: boolean; //Replaces the entire frontmatter instead of spreading new values onto old
-};
-
-
-
-function defaultLayout(layout: string) {
+const defaultLayout: Plugin<[string], unknown> = (layout: string) => {
   return function (_: unknown, file: Vfile) {
     file.data.astro.frontmatter.layout = layout;
   };
 };
 
-function defaultFrontmatter(option: Record<string, unknown> = {}) {
+const defaultFrontmatter: Plugin<[Record<string, unknown>], unknown> = (option = {}) => {
   return function (_: unknown, file: Vfile) {
     file.data.astro.frontmatter = {...file.data.astro.frontmatter, ...option};
   };
 };
 
-const defaultFrontmatterAdvanced: Plugin<[Options[]], unknown> = (options = []) => {
+export interface Option {
+  dirs: string[]; // Array of dirs your files are in Ex: './src/pages/blog'
+  frontmatter: Record<string, unknown>; // The default frontmatter for the dirs defined in 'dirs'
+  replace?: boolean; //Replaces the entire frontmatter instead of spreading new values onto old
+};
+
+const defaultFrontmatterAdvanced: Plugin<[Option[]], unknown> = (options = []) => {
   return function (_: unknown, file: Vfile) {
-    console.log(file)
-    //const filepath = file.history.pop().replace(file.cwd, '.').replace(/\\/g, '/');
-    const filepath = './';
+    const filepath = file.history.pop().replace(file.cwd, '.').replace(/(\/\/)|(\\)+/g, '/');
     for (const option of options) {
       for (const dir of option.dirs) {
         if (filepath.startsWith(dir)) {

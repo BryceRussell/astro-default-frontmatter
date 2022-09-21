@@ -6,8 +6,8 @@ let posts = await Astro.glob('../content/*.md');
   return (
     <div style="display:flex;flex-direction:column;gap:0.5rem;margin:.5rem;padding:.5rem;border:1px solid black;">
       <Fragment set:html={post.compiledContent()} />
-      <h3>Frontmatter:</h3>
-      <code set:text={JSON.stringify(post.frontmatter)}></code>
+      <h3>Final Frontmatter:</h3>
+      <pre set:text={JSON.stringify(post.frontmatter, null, 4)}></pre>
     </div>
   )
 })}
@@ -16,8 +16,9 @@ let posts = await Astro.glob('../content/*.md');
   h1, h3, p {
     margin: 0;
   }
-  code {
+  pre, pre code, pre code span {
     padding: 2px;
-    background-color: #eee;
+    background-color: #eee !important;
+    color: #000 !important;
   }
 </style>
