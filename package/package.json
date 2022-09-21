@@ -1,0 +1,26 @@
+{
+  "name": "astro-default-frontmatter",
+  "author": "Bryce Russell",
+  "license": "MIT",
+  "version": "0.0.1",
+  "description": "A few plugins for defining default frontmatter for your markdown in Astro",
+  "keywords": [
+    "astro",
+    "remark",
+    "plugin",
+    "markdown",
+    "default",
+    "frontmatter"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BryceRussell/astro-remark-default-frontmatter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BryceRussell/astro-remark-default-frontmatter/issues"
+  },
+  "homepage": "https://github.com/BryceRussell/astro-remark-default-frontmatter#readme",
+  "type": "module",
+  "main": "index.ts",
+  "types": "index.ts"
+}
