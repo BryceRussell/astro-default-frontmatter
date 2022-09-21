@@ -5,9 +5,11 @@ This is a simple collection of remark plugins for Astro that allows you to defin
 
 **Plugins**:
 
-- `defaultLayout` define a default layout for ALL markdown
-- `defaultFrontmatter` define a default frontmatter for ALL markdown
-- `defaultFrontmatterAdvanced` define a default frontmatter based on the files directory in the project
+- [`defaultLayout`](#defaultlayout) define a default layout for ALL markdown
+- [`defaultFrontmatter`](#defaultfrontmatter) define a default frontmatter for ALL markdown
+- [`defaultFrontmatterAdvanced`](#defaultfrontmatteradvanced) define a default frontmatter based on the files directory in the project
+
+If you want to see how these plugins work you can check out the [Stackblitz Demo](https://stackblitz.com/edit/github-hfgk3n)
 
 ## `defaultLayout`
 
@@ -25,7 +27,7 @@ import { defaultLayout } from 'astro-default-frontmatter';
 export default defineConfig({
   markdown: {
     remarkPlugins: [
-      [defaultLayout, "./src/layouts/DefaultLayout.astro"]
+      [defaultLayout, "~/layouts/DefaultLayout.astro"]
     ]
   }
 });
@@ -48,7 +50,7 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [
       [defaultFrontmatter, {
-        layout: "./src/layouts/DefaultLayout.astro",
+        layout: "~/layouts/DefaultLayout.astro",
         title: 'Default Title'
       }]
     ]
@@ -104,15 +106,15 @@ import { defaultFrontmatterAdvanced } from 'astro-default-frontmatter';
 const Options = [
   {
     dirs: ['./'],
-    frontmatter: { layout: "../layouts/DefaultLayout.astro" },
+    frontmatter: { layout: "~/layouts/DefaultLayout.astro" },
   },
   {
     dirs: ['./src/content'],
-    frontmatter: { layout: "../layouts/DirectoryLayout.astro" },
+    frontmatter: { layout: "~/layouts/DirectoryLayout.astro" },
   },
   {
     dirs: ['./src/content/2.md'],
-    frontmatter: { layout: "../layouts/FileLayout.astro"  }
+    frontmatter: { layout: "~/layouts/FileLayout.astro"  }
   },
   {
     dirs: ['./src/content/5.md'],
