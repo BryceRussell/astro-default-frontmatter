@@ -8,4 +8,4 @@ This is a simple collection of remark plugins for Astro that allows you to defin
 - `defaultFrontmatter` define a default frontmatter for ALL markdown
 - `defaultFrontmatterAdvanced` define a default frontmatter based on the files directory in the project
 
-[Check out the docs -->](/package/README.md)
+[Check out the docs -->](/package#readme)
