@@ -1,18 +1,19 @@
 {
   "name": "@example/minimal",
   "version": "0.0.1",
-  "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
+    "dev": "astro --root demo dev",
+    "start": "astro --root demo dev",
+    "build": "astro --root demo build",
+    "preview": "astro --root demo preview",
     "astro": "astro"
   },
+  "workspaces": [
+    "./demo",
+    "./package"
+  ],
   "devDependencies": {
-    "astro": "^1.2.1"
-  },
-  "dependencies": {
+    "astro": "^1.2.1",
     "remark": "^14.0.2"
   }
 }

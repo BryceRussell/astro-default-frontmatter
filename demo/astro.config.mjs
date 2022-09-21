@@ -1,12 +1,13 @@
 import { defineConfig } from 'astro/config';
-import { defaultFrontmatterAdvanced } from './plugin.mjs';
+
+import { defaultFrontmatterAdvanced } from 'astro-default-frontmatter';
 
 // https://astro.build/config
 export default defineConfig({
   markdown: {
     remarkPlugins: [
       [
-        defaultFrontmatterAdvanced,
+        defaultFrontmatterAdvanced(),
         [
           //Option objects should be in order from less specific directories --> more specific directories to avoid wierd behavior
           //Ex: './' -> './src' -> './src/content' -> './src/content/1.md'
