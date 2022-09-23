@@ -11,6 +11,10 @@ This is a simple collection of remark plugins for Astro that allows you to defin
 
 If you want to see how these plugins work you can check out the [Stackblitz Demo](https://stackblitz.com/edit/github-hfgk3n)
 
+## Install
+
+`npm i astro-default-frontmatter`
+
 ## `defaultLayout`
 
 **Option/Argument Type**: `string`
